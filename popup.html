@@ -5,15 +5,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quick Search Enhancer</title>
     <style>
-        body { width: 200px; font-family: Arial, sans-serif; padding: 10px; }
-        button { width: 100%; padding: 8px; margin: 5px 0; cursor: pointer; }
+        body {
+            display: flex;
+            justify-content: center; /* Center buttons horizontally */
+            align-items: center; /* Center buttons vertically (optional) */
+            gap: 20px; /* Add spacing between buttons */
+            height: 100vh; /* Full viewport height for centering */
+            margin: 0; /* Remove default margin */
+        }
+
+        /* Basic button styles */
+        button {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px; /* Default button size */
+            height: 60px;
+            /* border: none; */
+            border-radius: 0%; /* square button */
+            /* background-color: #f1f1f1; */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: transparent; /* Transparent background */
+            border: none; /* Remove the border */
+        }
+    
+        button:hover {
+            /* background-color: #ddd; */
+            background-color: transparent; /* Transparent background */
+            border: none; /* Remove the border */
+            width: auto; /* Expand the button on hover */
+            padding: 10px 20px; /* Add padding for text display */
+        }
+    
+        /* Icon styles */
+        button i {
+            font-size: 24px;
+        }
+    
+        /* Text styles (hidden by default) */
+        button span {
+            display: none;
+            margin-left: 10px;
+            font-size: 16px;
+            /* color: #333; */
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+    
+        /* Show the text on hover */
+        button:hover span {
+            display: inline;
+        }
+    
+        /* Specific colors for each button */
+        #google-search {
+            /* background-color: #eceef0; */
+            color: #301879;
+        }
+    
+        #google-search:hover {
+            color: #000;
+        }
+    
+        #wikipedia-search {
+            /* background-color: #000; */
+            /* background-color: #eceef0; */
+            color: #fff;
+        }
+    
+        #wikipedia-search:hover {
+            color: #000;
+        }
+    
+        #youtube-search {
+            /* background-color: #FF0000; */
+            /* background-color: #eceef0; */
+            color: #fff;
+        }
+    
+        #youtube-search:hover {
+            color: #000;
+        }
+            /* Tooltip styling */
+        .tooltip {
+            position: absolute;
+            bottom: 100%; /* Position above the button */
+            left: 50%; /* Centered horizontally */
+            transform: translateX(-50%); /* Adjust to center */
+            background-color: #333; /* Dark background for tooltip */
+            color: #fff; /* White text */
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0; /* Hidden by default */
+            pointer-events: none; /* Prevent interaction with the tooltip */
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateX(-50%) translateY(10px); /* Start slightly below */
+        }
+
+        /* Show tooltip on hover */
+        button:hover .tooltip {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-10px); /* Move tooltip above */
+        }
     </style>
+    
 </head>
 <body>
     <h3>Quick Search</h3>
-    <button id="google-search">Search on Google</button>
-    <button id="wikipedia-search">Search on Wikipedia</button>
-    <button id="youtube-search">Search on YouTube</button>
+    <button id="google-search">
+        <img src="icons/chrome_circle.png" alt="Chrome Icon" width="50">
+        <span class="tooltip" >Search on Google</span>
+        <!-- <i class="fab fa-chrome"></i>
+        <span>Search on Google</span> -->
+    </button>
+    <button id="wikipedia-search">
+        <img src="icons/wiki.png" alt="Chrome Icon" width="50">
+        <span class="tooltip" >Search on Wikipedia</span>
+    </button>
+    <button id="youtube-search">
+        <img src="icons/you.png" alt="Chrome Icon" width="50">
+        <span class="tooltip" >Search on YouTube</span>
+    </button>
     <script src="popup.js"></script>
 </body>
 </html>
